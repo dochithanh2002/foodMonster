@@ -57,9 +57,12 @@ const ServiceSingle = () => {
     if (likedItemList.includes(index)) {
       // Unlike logic
       setLikedItemList((prev) => prev.filter((e) => e !== index));
-      fetch(`http://54.179.44.247:8000/api/reviews/${index}?type=dislike`, {
-        method: "POST",
-      })
+      fetch(
+        `http://${process.env.REACT_APP_BACKEND_URL}:8000/api/reviews/${index}?type=dislike`,
+        {
+          method: "POST",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           setReviewLikes((prev) => ({
@@ -73,9 +76,12 @@ const ServiceSingle = () => {
     } else {
       // Like logic
       setLikedItemList((prev) => [...prev, index]);
-      fetch(`http://54.179.44.247:8000/api/reviews/${index}?type=like`, {
-        method: "POST",
-      })
+      fetch(
+        `http://${process.env.REACT_APP_BACKEND_URL}:8000/api/reviews/${index}?type=like`,
+        {
+          method: "POST",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           console.log("====================================");
@@ -104,7 +110,8 @@ const ServiceSingle = () => {
     <div>
       <div
         className="hero hero-service "
-        style={{ backgroundImage: `url("${media[0]?.link}")` }}>
+        style={{ backgroundImage: `url("${media[0]?.link}")` }}
+      >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content ml-20 text-neutral-content">
           <div className="my-16 text-white">
@@ -139,7 +146,8 @@ const ServiceSingle = () => {
               {food_drinks.map((food_drink, index) => (
                 <div
                   key={index}
-                  className=" shadow-xl w-48 mt-8 mr-8 rounded-lg">
+                  className=" shadow-xl w-48 mt-8 mr-8 rounded-lg"
+                >
                   <div className="w-48  rounded-lg border-1 border-zinc-200">
                     <img
                       className="rounded-t-lg object-cover w-full h-48"
@@ -149,7 +157,8 @@ const ServiceSingle = () => {
                   </div>
                   <div
                     className="text-black bg-zinc-100 card-body"
-                    style={{ padding: "1rem" }}>
+                    style={{ padding: "1rem" }}
+                  >
                     <p className="card-title text-sm">{food_drink?.name}</p>
                   </div>
                 </div>

@@ -24,7 +24,7 @@ const AddService = () => {
         history: history,
       },
     };
-    fetch("http://54.179.44.247:5000/services/", {
+    fetch("http://${process.env.REACT_APP_BACKEND_URL}:5000/services/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,12 +134,14 @@ const AddService = () => {
           <textarea
             className="textarea textarea-bordered"
             name="specialties"
-            placeholder="Write your service Specialties"></textarea>{" "}
+            placeholder="Write your service Specialties"
+          ></textarea>{" "}
           <br />
           <textarea
             className="textarea textarea-bordered"
             name="history"
-            placeholder="Write your service History"></textarea>
+            placeholder="Write your service History"
+          ></textarea>
         </div>
         <div className="form-control mt-4">
           <input type="submit" className="btn" value="Add Service" />

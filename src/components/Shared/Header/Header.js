@@ -18,13 +18,13 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar px-6 py-4 lg:px-20 bgcolor-white">
+    <div className="px-6 py-4 navbar lg:px-20 bgcolor-white">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="color-black lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor">
@@ -38,7 +38,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bgcolor-white color-black rounded-box w-52">
+            className="p-2 mt-3 shadow menu menu-compact dropdown-content bgcolor-white color-black rounded-box w-52">
             <NavLink to="/foodMonster">
               <li>Trang chủ</li>
             </NavLink>
@@ -53,13 +53,13 @@ const Header = () => {
         </div>
         <div className="flex">
           <img className="ml-3 lg:ml-0" src={logo} alt="" />
-          <NavLink className="btn btn-ghost color-black font-bold text-xl lg:text-2xl">
+          <NavLink className="text-xl font-bold btn btn-ghost color-black lg:text-2xl">
             Food Monster
           </NavLink>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal p-0">
+      <div className="hidden navbar-center lg:flex ">
+        <ul className="p-0 menu menu-horizontal">
           <NavLink to="/foodMonster" className="mr-4 font-semibold color-black">
             <li>Trang chủ</li>
           </NavLink>
@@ -85,28 +85,28 @@ const Header = () => {
           {user?.uid ? (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
               <li>
                 <NavLink
                   to="/edit-profile"
-                  className="justify-between bg-transparent text-black">
+                  className="justify-between text-black bg-transparent">
                   Profile
                 </NavLink>
               </li>
               <li onClick={handleSignOut}>
-                <NavLink className="bg-transparent text-black">Logout</NavLink>
+                <NavLink className="text-black bg-transparent">Logout</NavLink>
               </li>
             </ul>
           ) : (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bgcolor-white rounded-box w-52">
+              className="p-2 mt-3 shadow menu menu-compact dropdown-content bgcolor-white rounded-box w-52">
               <li>
-                <NavLink to="/anket" className="bg-transparent text-black ">
+                <NavLink to="/foodMonster/anket" className="text-black bg-transparent ">
                   <li>Anket</li>
                 </NavLink>
               </li>
-              {/*<li><NavLink to="/signup" className="bg-transparent text-black">Sign Up</NavLink></li>*/}
+              {/*<li><NavLink to="/signup" className="text-black bg-transparent">Sign Up</NavLink></li>*/}
             </ul>
           )}
         </div>
