@@ -60,7 +60,7 @@ const Router = createBrowserRouter([
     element: <User></User>,
     children: [
       {
-        path: "/edit-profile",
+        path: "edit-profile",
         element: (
           <PrivateRoute>
             <EditProfile></EditProfile>
@@ -68,7 +68,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-service",
+        path: "add-service",
         element: (
           <PrivateRoute>
             <AddService></AddService>
@@ -76,7 +76,7 @@ const Router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-reviews",
+        path: "my-reviews",
         loader: async () =>
           fetch("https://food-monster-server.vercel.app/reviews"),
         element: (
