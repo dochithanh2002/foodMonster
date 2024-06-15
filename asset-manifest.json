@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foodMonster/static/css/main.b80fec32.css",
-    "main.js": "/foodMonster/static/js/main.4ed2fa91.js",
+    "main.js": "/foodMonster/static/js/main.b8735e77.js",
     "static/js/787.d6cc8b2e.chunk.js": "/foodMonster/static/js/787.d6cc8b2e.chunk.js",
     "static/media/home-banner.png": "/foodMonster/static/media/home-banner.e3d0167a1f7060207094.png",
     "static/media/register.jpg": "/foodMonster/static/media/register.287e0746ba3a15122073.jpg",
@@ -13,11 +13,11 @@
     "static/media/food.jpg": "/foodMonster/static/media/food.bef24961a0248a43dde1.jpg",
     "index.html": "/foodMonster/index.html",
     "main.b80fec32.css.map": "/foodMonster/static/css/main.b80fec32.css.map",
-    "main.4ed2fa91.js.map": "/foodMonster/static/js/main.4ed2fa91.js.map",
+    "main.b8735e77.js.map": "/foodMonster/static/js/main.b8735e77.js.map",
     "787.d6cc8b2e.chunk.js.map": "/foodMonster/static/js/787.d6cc8b2e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b80fec32.css",
-    "static/js/main.4ed2fa91.js"
+    "static/js/main.b8735e77.js"
   ]
 }
