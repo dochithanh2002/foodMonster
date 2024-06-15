@@ -75,7 +75,9 @@ const ServicesCollection = ({ search, setSearch }) => {
                           : "")}
                     </p>
                     <div className="card-actions justify-end">
-                      <Link to={`/services/${service.id}`} className="badge">
+                      <Link
+                        to={`/foodMonster/services/${service.id}`}
+                        className="badge">
                         Xem thêm
                       </Link>
                     </div>
