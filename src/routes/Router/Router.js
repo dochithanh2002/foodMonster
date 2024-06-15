@@ -56,7 +56,7 @@ const Router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
+    path: "/foodMonster",
     element: <User></User>,
     children: [
       {
