@@ -1,0 +1,11 @@
+.home-hero{
+    place-items: start !important;
+}
+.hero-content .btn{
+    background-color: #FF3A44;
+    border: #FF3A44;
+    color: white;
+}
+.color-red{
+    color: #FF3A44;
+}
