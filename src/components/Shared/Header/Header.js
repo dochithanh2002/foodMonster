@@ -60,7 +60,7 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal p-0">
-          <NavLink to="/" className="mr-4 font-semibold color-black">
+          <NavLink to="/foodMonster" className="mr-4 font-semibold color-black">
             <li>Trang chủ</li>
           </NavLink>
           <NavLink
