@@ -18,7 +18,7 @@ const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const Router = createBrowserRouter([
   {
-    path: "/",
+    path: "/foodMonster",
     element: <Main></Main>,
     children: [
       {
