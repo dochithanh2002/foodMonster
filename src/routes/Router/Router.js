@@ -22,35 +22,35 @@ const Router = createBrowserRouter([
     element: <Main></Main>,
     children: [
       {
-        path: "/",
+        path: "",
         loader: async () => fetch(`${baseUrl}/api/eateries/all`),
         element: <Home></Home>,
       },
       {
-        path: "/services",
+        path: "services",
         loader: async () => fetch(`${baseUrl}/api/eateries/all`),
         element: <Services></Services>,
       },
       {
-        path: "/services/:_id",
+        path: "services/:_id",
         loader: async ({ params }) =>
           fetch(`${baseUrl}/api/eateries/${params._id}`),
         element: <ServiceSingle></ServiceSingle>,
       },
       {
-        path: "/blog",
+        path: "blog",
         element: <Blog></Blog>,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login></Login>,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <SignUp></SignUp>,
       },
       {
-        path: "/anket",
+        path: "anket",
         element: <Anket></Anket>,
       },
     ],
