@@ -5,12 +5,12 @@ import drink from "../../../../assets/images/drink.jpg";
 import BgImage from "../../../../assets/images/u594-hero.jpg";
 
 const Anket = () => {
-  const baseUrl = process.env.REACT_APP_BACKEND_URL;
+  // const baseUrl = process.env.REACT_APP_BACKEND_URL;
   const [listFood, setListFood] = useState([]);
   const [listDrink, setListDrink] = useState([]);
 
   useEffect(() => {
-    fetch(`${baseUrl}/api/food_drinks`)
+    fetch(`http://localhost:8000/api/food_drinks`)
       .then((res) => res.json())
       .then((data) => {
         setListFood(data.filter((item) => item.type === "food"));
@@ -49,7 +49,7 @@ const Anket = () => {
       favourites: fav,
     };
     try {
-      fetch(`${baseUrl}/api/users/profile`, {
+      fetch(`http://localhost:8000/api/users/profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
