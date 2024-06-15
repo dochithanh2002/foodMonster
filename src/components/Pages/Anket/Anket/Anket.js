@@ -10,7 +10,7 @@ const Anket = () => {
   const [listDrink, setListDrink] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/food_drinks`)
+    fetch(`http://54.179.44.247:8000/api/food_drinks`)
       .then((res) => res.json())
       .then((data) => {
         setListFood(data.filter((item) => item.type === "food"));
@@ -49,7 +49,7 @@ const Anket = () => {
       favourites: fav,
     };
     try {
-      fetch(`http://localhost:8000/api/users/profile`, {
+      fetch(`http://54.179.44.247:8000/api/users/profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

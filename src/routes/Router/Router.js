@@ -23,18 +23,18 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "",
-        loader: async () => fetch(`http://localhost:8000/api/eateries/all`),
+        loader: async () => fetch(`http://54.179.44.247:8000/api/eateries/all`),
         element: <Home></Home>,
       },
       {
         path: "services",
-        loader: async () => fetch(`http://localhost:8000/api/eateries/all`),
+        loader: async () => fetch(`http://54.179.44.247:8000/api/eateries/all`),
         element: <Services></Services>,
       },
       {
         path: "services/:_id",
         loader: async ({ params }) =>
-          fetch(`http://localhost:8000/api/eateries/${params._id}`),
+          fetch(`http://54.179.44.247:8000/api/eateries/${params._id}`),
         element: <ServiceSingle></ServiceSingle>,
       },
       {

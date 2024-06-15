@@ -19,7 +19,7 @@ const ServiceSingle = () => {
   useEffect(() => {
     // Initialize reviewLikes state with initial like counts from reviews
     const initialLikes = {};
-    reviews.forEach(review => {
+    reviews.forEach((review) => {
       initialLikes[review.id] = review.like || 0;
     });
     setReviewLikes(initialLikes);
@@ -30,41 +30,45 @@ const ServiceSingle = () => {
     if (likedItemList.includes(index)) {
       // Unlike logic
       setLikedItemList((prev) => prev.filter((e) => e !== index));
-      fetch(`http://localhost:8000/api/reviews/${index}?type=dislike`, {
+      fetch(`http://54.179.44.247:8000/api/reviews/${index}?type=dislike`, {
         method: "POST",
       })
-      .then((response) => response.json())
-      .then((data) => {
-        setReviewLikes((prev) => ({
-          ...prev,
-          [index]: prev[index] - 1 // Decrease like count by 1
-        }));
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          setReviewLikes((prev) => ({
+            ...prev,
+            [index]: prev[index] - 1, // Decrease like count by 1
+          }));
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     } else {
       // Like logic
       setLikedItemList((prev) => [...prev, index]);
-      fetch(`http://localhost:8000/api/reviews/${index}?type=like`, {
+      fetch(`http://54.179.44.247:8000/api/reviews/${index}?type=like`, {
         method: "POST",
       })
-      .then((response) => response.json())
-      .then((data) => {
-        setReviewLikes((prev) => ({
-          ...prev,
-          [index]: prev[index] + 1 // Increase like count by 1
-        }));
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          setReviewLikes((prev) => ({
+            ...prev,
+            [index]: prev[index] + 1, // Increase like count by 1
+          }));
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     }
   };
 
   // Function to render like count for a review
   const renderLikeCount = (index) => {
-    return <a className="ml-2" style={{ alignContent: "end" }}>{reviewLikes[index]}</a>;
+    return (
+      <a className="ml-2" style={{ alignContent: "end" }}>
+        {reviewLikes[index]}
+      </a>
+    );
   };
 
   // Options for star filter select
@@ -87,15 +91,15 @@ const ServiceSingle = () => {
       }
     })
     .sort((a, b) => b.like - a.like); // Sort by review.like in descending order
-    const calculateAverageRating = () => {
-      if (reviews.length === 0) return 0;
-  
-      const sum = reviews.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.rating;
-      }, 0);
-  
-      return (sum / reviews.length).toFixed(1); // Return average rating rounded to 1 decimal place
-    };
+  const calculateAverageRating = () => {
+    if (reviews.length === 0) return 0;
+
+    const sum = reviews.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.rating;
+    }, 0);
+
+    return (sum / reviews.length).toFixed(1); // Return average rating rounded to 1 decimal place
+  };
 
   return (
     <div>
@@ -107,11 +111,11 @@ const ServiceSingle = () => {
           <div className="my-16 text-white">
             <h1 className="mb-5 text-5xl font-bold ">{name}</h1>
             <div className="flex items-center text-xl font-semibold ">
-              {rating >= 1 && (<BsStarFill className="star-color mr-1" />)}
-              {rating >= 1.5 && (<BsStarFill className="star-color mr-1" />)}
-              {rating >= 2.5 && (<BsStarFill className="star-color mr-1" />)}
-              {rating >= 3.5 && (<BsStarFill className="star-color mr-1" />)}
-              {rating >= 4.5 && (<BsStarFill className="star-color mr-1" />)}
+              {rating >= 1 && <BsStarFill className="star-color mr-1" />}
+              {rating >= 1.5 && <BsStarFill className="star-color mr-1" />}
+              {rating >= 2.5 && <BsStarFill className="star-color mr-1" />}
+              {rating >= 3.5 && <BsStarFill className="star-color mr-1" />}
+              {rating >= 4.5 && <BsStarFill className="star-color mr-1" />}
               {rating}
             </div>
             <div className="pt-10">
@@ -127,7 +131,7 @@ const ServiceSingle = () => {
         </div>
       </div>
       <div className="px-24 text-black bg-white pb-10">
-      <div>
+        <div>
           <div className="mb-2">
             <h2 className="font-semibold text-2xl mb-3 pt-8">
               Food and Drinks
@@ -157,7 +161,9 @@ const ServiceSingle = () => {
       </div>
       <div className="px-24 text-black bg-zinc-100 pb-4">
         <div className="col-span-2">
-          <h2 className="font-semibold text-2xl mb-3 pt-8 ">Reviews ({filteredReviews.length})</h2>
+          <h2 className="font-semibold text-2xl mb-3 pt-8 ">
+            Reviews ({filteredReviews.length})
+          </h2>
           <div className="w-80">
             <Select
               options={options}
@@ -173,28 +179,28 @@ const ServiceSingle = () => {
             filteredReviews.map((review, index) => (
               <div key={review.id} className="card bg-white shadow-xl my-4">
                 <div className="card-body">
-                    <p className="card-title text-sm">
-                      <div className=" text-xl">
-                          <FaCircleUser/>
-                      </div>
-                      <p>{review.reviewer}{" "}</p>
-                      {[...Array(Math.floor(review.rating))].map((_, i) => (
-                        <BsStarFill key={i} className="star-color" />
-                      ))}
-                      {review.rating}
-                    </p>
+                  <p className="card-title text-sm">
+                    <div className=" text-xl">
+                      <FaCircleUser />
+                    </div>
+                    <p>{review.reviewer} </p>
+                    {[...Array(Math.floor(review.rating))].map((_, i) => (
+                      <BsStarFill key={i} className="star-color" />
+                    ))}
+                    {review.rating}
+                  </p>
                   <div className="flex flex-wrap space-between">
                     <div className="w-32 h-24">
                       <img src={review.image_link} alt="" />
                     </div>
-                    <div className="w-128 h-24 pl-8">
-                      {review.content}
-                    </div>
+                    <div className="w-128 h-24 pl-8">{review.content}</div>
                   </div>
                   <div className="flex justify-end mb-2">
                     <AiFillLike
                       size={30}
-                      color={likedItemList.includes(review.id) ? "red" : "black"}
+                      color={
+                        likedItemList.includes(review.id) ? "red" : "black"
+                      }
                       onClick={() => handleLikedItemList(review.id)}
                     />
                     {renderLikeCount(review.id)}
