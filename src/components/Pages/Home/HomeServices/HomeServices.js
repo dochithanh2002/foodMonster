@@ -36,11 +36,21 @@ const HomeServices = () => {
                   <div className="text-black card-body">
                     <h2 className="text-xl card-title">{service?.name}</h2>
                     <div className="flex items-center">
-                      {service.rating >= 1 && (<BsStarFill className="mr-1 star-color" />)}
-                      {service.rating >= 1.5 && (<BsStarFill className="mr-1 star-color" />)}
-                      {service.rating >= 2.5 && (<BsStarFill className="mr-1 star-color" />)}
-                      {service.rating >= 3.5 && (<BsStarFill className="mr-1 star-color" />)}
-                      {service.rating >= 4.5 && (<BsStarFill className="mr-1 star-color" />)}
+                      {service.rating >= 1 && (
+                        <BsStarFill className="mr-1 star-color" />
+                      )}
+                      {service.rating >= 1.5 && (
+                        <BsStarFill className="mr-1 star-color" />
+                      )}
+                      {service.rating >= 2.5 && (
+                        <BsStarFill className="mr-1 star-color" />
+                      )}
+                      {service.rating >= 3.5 && (
+                        <BsStarFill className="mr-1 star-color" />
+                      )}
+                      {service.rating >= 4.5 && (
+                        <BsStarFill className="mr-1 star-color" />
+                      )}
                       {service?.rating}
                     </div>
                     <div className="flex items-center">
@@ -62,7 +72,10 @@ const HomeServices = () => {
                           : "")}
                     </p>
                     <div className="justify-end card-actions">
-                      <Link to={`/foodMonster/services/${service.id}`} className="badge">
+                      <Link
+                        to={`/foodMonster/services/${service.id}`}
+                        className="badge"
+                      >
                         Xem thêm
                       </Link>
                     </div>
@@ -81,6 +94,12 @@ const HomeServices = () => {
             Xem thêm
           </Link>
         </div>
+      </div>
+
+      {/* Based on anket */}
+      <div className="my-12 text-center">
+        <h2 className="text-4xl font-bold text-black">Dựa trên sở thích của bạn</h2>
+        <p className="pt-5 text-black-500">Dễ dàng tìm dược món ăn yêu thích</p>
       </div>
     </div>
   );

@@ -10,12 +10,16 @@ const Anket = () => {
   const [listDrink, setListDrink] = useState([]);
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_BACKEND_URL}:8000/api/food_drinks`)
-      .then((res) => res.json())
-      .then((data) => {
-        setListFood(data.filter((item) => item.type === "food"));
-        setListDrink(data.filter((item) => item.type === "drink"));
-      });
+    fetch(`http://${process.env.REACT_APP_BACKEND_URL}:8000/api/food_drinks`, {
+      headers: {
+        'user-id': '1'
+      }
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      setListFood(data.filter((item) => item.type === "food"));
+      setListDrink(data.filter((item) => item.type === "drink"));
+    });
   }, []);
 
   const [clickedIndices, setClickedIndices] = useState([]);
@@ -71,12 +75,12 @@ const Anket = () => {
     <div style={{ paddingBottom: 150, backgroundColor: "white" }}>
       <div className="hero" style={{ backgroundImage: `url("${BgImage}")` }}>
         <div className="hero-overlay bg-opacity-70"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="text-center hero-content text-neutral-content">
           <div className="my-12">
             <h1 className="mb-5 text-5xl font-bold text-white">
               Chọn món ăn và đồ uống bạn yêu thích
             </h1>
-            <div className="form-control flex flex-row"></div>
+            <div className="flex flex-row form-control"></div>
           </div>
         </div>
       </div>
@@ -187,14 +191,14 @@ const Anket = () => {
       >
         <button
           style={{ backgroundColor: "#FF3A44", border: "none" }}
-          className="btn w-3/12 mb-4 text-white"
+          className="w-3/12 mb-4 text-white btn"
           onClick={() => {
             submit();
           }}
         >
           <Link
             to={`/foodMonster`}
-            className="badge text-white"
+            className="text-white badge"
             style={{ backgroundColor: "#FF3A44", border: "none" }}
           >
             Hoàn thành
