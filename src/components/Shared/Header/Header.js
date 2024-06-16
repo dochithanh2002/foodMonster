@@ -45,10 +45,6 @@ const Header = () => {
             <NavLink to="/foodMonster/services">
               <li>Dịch vụ</li>
             </NavLink>
-            {/* <NavLink to="/blog"><li>Blog</li></NavLink>
-                        <NavLink to="/contact"><li>Contact Us</li></NavLink>
-                        <NavLink to="/login"><li>Login</li></NavLink>
-                        <NavLink to="/signup"><li>SignUp</li></NavLink> */}
           </ul>
         </div>
         <div className="flex">
@@ -68,7 +64,6 @@ const Header = () => {
             className="mr-4 font-semibold color-black ">
             <li>Dịch vụ</li>
           </NavLink>
-          {/* <NavLink to="/blog" className='mr-4 font-semibold'><li>Blog</li></NavLink> */}
         </ul>
       </div>
       <div className="navbar-end">
@@ -102,7 +97,9 @@ const Header = () => {
               tabIndex={0}
               className="p-2 mt-3 shadow menu menu-compact dropdown-content bgcolor-white rounded-box w-52">
               <li>
-                <NavLink to="/foodMonster/anket" className="text-black bg-transparent ">
+                <NavLink
+                  to="/foodMonster/anket"
+                  className="bg-transparent text-black ">
                   <li>Anket</li>
                 </NavLink>
               </li>

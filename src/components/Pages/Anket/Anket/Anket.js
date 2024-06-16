@@ -10,16 +10,12 @@ const Anket = () => {
   const [listDrink, setListDrink] = useState([]);
 
   useEffect(() => {
-    fetch(`http://${process.env.REACT_APP_BACKEND_URL}:8000/api/food_drinks`, {
-      headers: {
-        'user-id': '1'
-      }
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      setListFood(data.filter((item) => item.type === "food"));
-      setListDrink(data.filter((item) => item.type === "drink"));
-    });
+    fetch(`http://54.179.44.247:8000/api/food_drinks`)
+      .then((res) => res.json())
+      .then((data) => {
+        setListFood(data.filter((item) => item.type === "food"));
+        setListDrink(data.filter((item) => item.type === "drink"));
+      });
   }, []);
 
   const [clickedIndices, setClickedIndices] = useState([]);
@@ -53,17 +49,14 @@ const Anket = () => {
       favourites: fav,
     };
     try {
-      fetch(
-        `http://${process.env.REACT_APP_BACKEND_URL}:8000/api/users/profile`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "user-id": "1",
-          },
-          body: JSON.stringify(postData),
-        }
-      )
+      fetch(`http://54.179.44.247:8000/api/users/profile`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "user-id": "1",
+        },
+        body: JSON.stringify(postData),
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log("data", data);
@@ -99,8 +92,7 @@ const Anket = () => {
               gap: 10,
               flexWrap: "wrap",
               marginLeft: 80,
-            }}
-          >
+            }}>
             {listFood.map(({ name, id }) => {
               const isClicked = clickedIndices.includes(id);
               const isHovered = hoveredIndexFood === id;
@@ -123,8 +115,7 @@ const Anket = () => {
                   }}
                   onClick={() => handleClick(id)}
                   onMouseEnter={() => setHoveredIndexFood(id)}
-                  onMouseLeave={() => setHoveredIndexFood(null)}
-                >
+                  onMouseLeave={() => setHoveredIndexFood(null)}>
                   <span>{name}</span>
                 </div>
               );
@@ -147,8 +138,7 @@ const Anket = () => {
               gap: 10,
               flexWrap: "wrap",
               marginLeft: 80,
-            }}
-          >
+            }}>
             {listDrink.map(({ name, id }) => {
               const isClicked = clickedIndicesDrink.includes(id);
               const isHovered = hoveredIndexDrink === id;
@@ -171,8 +161,7 @@ const Anket = () => {
                   }}
                   onClick={() => handleClickDrink(id)}
                   onMouseEnter={() => setHoveredIndexDrink(id)}
-                  onMouseLeave={() => setHoveredIndexDrink(null)}
-                >
+                  onMouseLeave={() => setHoveredIndexDrink(null)}>
                   <span>{name}</span>
                 </div>
               );
@@ -187,20 +176,17 @@ const Anket = () => {
           justifyContent: "right",
           display: "flex",
           marginRight: 40,
-        }}
-      >
+        }}>
         <button
           style={{ backgroundColor: "#FF3A44", border: "none" }}
           className="w-3/12 mb-4 text-white btn"
           onClick={() => {
             submit();
-          }}
-        >
+          }}>
           <Link
             to={`/foodMonster`}
             className="text-white badge"
-            style={{ backgroundColor: "#FF3A44", border: "none" }}
-          >
+            style={{ backgroundColor: "#FF3A44", border: "none" }}>
             Hoàn thành
           </Link>
         </button>
