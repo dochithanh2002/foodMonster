@@ -12,11 +12,14 @@ const HomeServices = () => {
 
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
-    fetch(`http://54.179.44.247:8000/api/eateries/user_favourite`, {
-      headers: {
-        "user-id": 1,
-      },
-    })
+    fetch(
+      `http://${process.env.REACT_APP_BACKEND_URL}:8000/api/eateries/user_favourite`,
+      {
+        headers: {
+          "user-id": 1,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setSuggestions(data);
@@ -87,7 +90,8 @@ const HomeServices = () => {
                     <div className="card-actions justify-end">
                       <Link
                         to={`/foodMonster/services/${service.id}`}
-                        className="badge">
+                        className="badge"
+                      >
                         Xem thêm
                       </Link>
                     </div>
@@ -173,7 +177,8 @@ const HomeServices = () => {
                     <div className="card-actions justify-end">
                       <Link
                         to={`/foodMonster/services/${service.id}`}
-                        className="badge">
+                        className="badge"
+                      >
                         Xem thêm
                       </Link>
                     </div>
